@@ -1,21 +1,22 @@
+
 # Smart Movie Recommender System
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
-
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
+[![Docker Hub](https://img.shields.io/docker/pulls/datadoodle14/movie-recommender?logo=docker)](https://hub.docker.com/r/datadoodle14/movie-recommender)
 
 A content-based movie recommender system built with NLP and Streamlit.  
 Recommends movies similar to a selected title using **TF-IDF vectorization** and **cosine similarity**.
 
-> [Live Demo](https://your-streamlit-app-link.streamlit.app) ← replace with your deployed link
 
 ---
 
 ## Screenshots
 
-| Home | Recommendations |
+| Recommendation_1 | Recommendation_2 |
 |------|-----------------|
-| ![Home](screenshots/app_preview_1.png) | ![Results](screenshots/app_preview_2.png) |
+| ![Recommendation_1](screenshots/app_preview_1.png) | ![Recommendation_2](screenshots/app_preview_2.png) |
 
 ---
 
@@ -49,6 +50,7 @@ Recommends movies similar to a selected title using **TF-IDF vectorization** and
 | ML / Similarity | Scikit-learn |
 | Frontend | Streamlit |
 | External API | TMDB API |
+| Containerization | Docker |
 
 ---
 
@@ -59,10 +61,11 @@ Recommends movies similar to a selected title using **TF-IDF vectorization** and
 - A [TMDB API key](https://www.themoviedb.org/settings/api)
 
 ### Steps
+
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/movie-recommender.git
-cd movie-recommender
+git clone https://github.com/DataDoodle14/Movie_Recommendation_Engine_Content_based_Filtering.git
+cd Movie_Recommendation_Engine_Content_based_Filtering
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -70,24 +73,35 @@ pip install -r requirements.txt
 # 3. Add your API key
 echo "API_KEY=your_api_key_here" > .env
 
-# 4. Generate model files (run notebook or script)
+# 4. Generate model files (run notebook)
 jupyter notebook notebook/content_based_filtering.ipynb
 
 # 5. Launch the app
 streamlit run app.py
 ```
 
-### Run with Docker
+---
+
+### Run with Docker (No Setup Needed!)
+
 ```bash
-docker-compose up --build
+# Pull the image from Docker Hub
+docker pull datadoodle14/movie-recommender
+
+# Run the app
+docker run -p 8501:8501 datadoodle14/movie-recommender
 ```
+
 Then open `http://localhost:8501` in your browser.
+
+> Docker image available at: [hub.docker.com/r/datadoodle14/movie-recommender](https://hub.docker.com/r/datadoodle14/movie-recommender)
 
 ---
 
 ## Project Structure
+
 ```
-movie_recommender/
+Movie_Recommendation_Engine_Content_based_Filtering/
 ├── data/
 │   ├── tmdb_5000_credits.csv
 │   └── tmdb_5000_movies.csv
@@ -97,13 +111,12 @@ movie_recommender/
 ├── notebook/
 │   └── content_based_filtering.ipynb
 ├── screenshots/
-│   ├── smart_movie_recommender_sys_1.png
-│   └── smart_movie_recommender_sys_2.png
+│   ├── app_preview_1.png
+│   └── app_preview_2.png
 ├── app.py
 ├── Dockerfile
-├── docker-compose.yml
 ├── requirements.txt
-├── .env 
+├── .env
 ├── .gitignore
 └── README.md
 ```
@@ -124,6 +137,6 @@ movie_recommender/
 
 ---
 
-##  License
+## License
 
-MIT © Krutika Malli
+This project is open source and available under the [MIT License](LICENSE).

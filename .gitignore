@@ -1,0 +1,10 @@
+.env
+*.csv
+pycache/
+*.pyc
+.env/
+__pycache__/
+.ipynb_checkpoints/
+# .streamlit/secrets.toml
+*.pkl
+model/*.pkl
